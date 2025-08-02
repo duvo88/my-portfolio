@@ -16,7 +16,7 @@ const projects: Project[] = [
         id: 1,
         title: "Inventory Management System (Demo)",
         description:
-            "Full-stack inventory management system built with C# and SQL Server. Integrated with Azure services and features MFA, OpenAI APIs and CI/CD with GitHub Actions. Built in a short period of time for demo purposes only. This project showcases my skills in .NET Core, React, and Azure DevOps.",
+            "Full-stack inventory management system built with C# and Azure DevOps. Integrated with Azure services and features MFA, OpenAI APIs and CI/CD with GitHub Actions. Built in a short period of time for demo purposes only.",
         image: `${import.meta.env.BASE_URL}images/react_vite_ts.png`,
         tags: [
             "C#",
@@ -28,14 +28,14 @@ const projects: Project[] = [
             "MFA",
             "CI/CD",
         ],
-        demoUrl: "https://www.happyboxx.com.au",
+        demoUrl: "https://www.happyboxx.com.au", //https://www.happyboxx.com.au
         githubUrl: "https://github.com/duvo88",
     },
     {
         id: 2,
         title: "B2B/B2C eCommerce Platform",
         description:
-            "Enterprise-grade eCommerce portals for clients like JB Hi-Fi and Office Choice, featuring self-service, REST/SOAP integration, and scalable architecture.",
+            "Enterprise-grade eCommerce portals for clients like JB Hi-Fi Business and Office Choice, featuring self-service, REST/SOAP integration, and scalable architecture.",
         image: `${import.meta.env.BASE_URL}images/B2B_eCommerce.png`,
         tags: [
             "C#",
@@ -121,7 +121,7 @@ export const ProjectsSection: FC = () => {
                                         <div className="mt-4 flex items-center gap-3">
                                             <a
                                                 href={project.demoUrl}
-                                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition"
+                                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
@@ -130,7 +130,7 @@ export const ProjectsSection: FC = () => {
                                             </a>
                                             <a
                                                 href={project.githubUrl}
-                                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-neutral-800 hover:bg-neutral-900 text-white text-sm font-medium rounded-md transition"
+                                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-neutral-800 hover:bg-gray-700 text-white text-sm font-medium rounded-md transition"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >

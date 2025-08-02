@@ -2,13 +2,7 @@ import { useEffect, useState } from "react";
 import type { FC } from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
 
-const sectionOrder = [
-    "hero",
-    "about",
-    "skills",
-    "projects",
-    "footer",
-];
+const sectionOrder = ["hero", "about", "skills", "projects", "footer"];
 
 export const ScrollButton: FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -100,9 +94,11 @@ export const ScrollButton: FC = () => {
             className="fixed bottom-6 right-6 z-50 flex flex-col items-center animate-bounce cursor-pointer"
             onClick={handleScroll}
         >
-            <span className="text-lg mb-1 px-2 py-0.5 rounded-xl bg-white/70 text-primary backdrop-blur-sm shadow-sm hover:bg-gray-100 transition-colors">
-                {direction === "down" ? "Scroll Down" : "Scroll Up"}
-            </span>
+            {currentIndex === 0 && (
+                <span className="text-lg mb-1 px-2 py-0.5 rounded-xl bg-white/70 text-primary backdrop-blur-sm shadow-sm hover:bg-gray-100 transition-colors">
+                    {direction === "down" ? "Scroll Down" : "Scroll Up"}
+                </span>
+            )}
             <button aria-label="Scroll">
                 {direction === "down" ? (
                     <ArrowDown className="h-6 w-6 text-primary transition-transform duration-300" />

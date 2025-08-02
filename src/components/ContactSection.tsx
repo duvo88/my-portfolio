@@ -1,4 +1,5 @@
-import { useState, type FormEvent } from "react";
+import { useState, useRef, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import {
     Linkedin,
     Mail,
@@ -13,20 +14,35 @@ import { useToast } from "../hooks/use-toast";
 
 export const ContactSection = () => {
     const { toast } = useToast();
+    const formRef = useRef<HTMLFormElement>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        setTimeout(() => {
-            toast({
-                title: "Message sent!",
-                description:
-                    "Thank you for your message. I will get back to you soon.",
+        emailjs
+            .sendForm(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                formRef.current!,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY  
+            )
+            .then(() => {
+                toast({
+                    title: "Message sent!",
+                    description: "Thank you for your message. I will get back to you soon.",
+                });
+                setIsSubmitting(false);
+                formRef.current?.reset();
+            })
+            .catch(() => {
+                toast({
+                    title: "Sending failed",
+                    description: "Please try again later or contact me directly.",
+                });
+                setIsSubmitting(false);
             });
-            setIsSubmitting(false);
-        }, 1500);
     };
 
     return (
@@ -37,8 +53,7 @@ export const ContactSection = () => {
                 </h2>
 
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                    Have a project in mind or want to collaborate? Feel free to
-                    reach out. I am always open to discussing new opportunities.
+                    Have a project in mind or want to collaborate? Feel free to reach out. I am always open to discussing new opportunities.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -56,17 +71,13 @@ export const ContactSection = () => {
                                 href="mailto:quangdu.qn@gmail.com"
                             />
                             <ContactItem
-                                icon={
-                                    <Phone className="h-6 w-6 text-primary" />
-                                }
+                                icon={<Phone className="h-6 w-6 text-primary" />}
                                 label="Phone"
                                 value="+61 434 190 574"
                                 href="tel:+61434190574"
                             />
                             <ContactItem
-                                icon={
-                                    <MapPin className="h-6 w-6 text-primary" />
-                                }
+                                icon={<MapPin className="h-6 w-6 text-primary" />}
                                 label="Location"
                                 value="Bankstown, NSW, Australia"
                             />
@@ -104,9 +115,10 @@ export const ContactSection = () => {
                         <h3 className="text-2xl font-semibold mb-6">
                             Send a Message
                         </h3>
-                        <form className="space-y-6" onSubmit={handleSubmit}>
+                        <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                             <InputField
                                 id="name"
+                                name="name"
                                 label="Your Name"
                                 type="text"
                                 required
@@ -114,6 +126,7 @@ export const ContactSection = () => {
                             />
                             <InputField
                                 id="email"
+                                name="email"
                                 label="Your Email"
                                 type="email"
                                 required
@@ -121,6 +134,7 @@ export const ContactSection = () => {
                             />
                             <TextAreaField
                                 id="message"
+                                name="message"
                                 label="Your Message"
                                 required
                                 placeholder="Hello, I would like to..."
@@ -129,9 +143,7 @@ export const ContactSection = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className={cn(
-                                    "cosmic-button w-full flex items-center justify-center gap-2"
-                                )}
+                                className={cn("cosmic-button w-full flex items-center justify-center gap-2")}
                             >
                                 {isSubmitting ? "Sending..." : "Send Message"}
                                 <Send size={16} />
@@ -144,8 +156,7 @@ export const ContactSection = () => {
     );
 };
 
-// Reusable Subcomponents
-
+// Components reused below
 type ContactItemProps = {
     icon: React.ReactNode;
     label: string;
@@ -174,6 +185,7 @@ const ContactItem = ({ icon, label, value, href }: ContactItemProps) => (
 
 type InputFieldProps = {
     id: string;
+    name: string;
     label: string;
     type: string;
     required?: boolean;
@@ -182,6 +194,7 @@ type InputFieldProps = {
 
 const InputField = ({
     id,
+    name,
     label,
     type,
     required,
@@ -194,7 +207,7 @@ const InputField = ({
         <input
             type={type}
             id={id}
-            name={id}
+            name={name}
             required={required}
             placeholder={placeholder}
             className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
@@ -204,6 +217,7 @@ const InputField = ({
 
 type TextAreaFieldProps = {
     id: string;
+    name: string;
     label: string;
     required?: boolean;
     placeholder?: string;
@@ -211,6 +225,7 @@ type TextAreaFieldProps = {
 
 const TextAreaField = ({
     id,
+    name,
     label,
     required,
     placeholder,
@@ -221,7 +236,7 @@ const TextAreaField = ({
         </label>
         <textarea
             id={id}
-            name={id}
+            name={name}
             required={required}
             placeholder={placeholder}
             className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
