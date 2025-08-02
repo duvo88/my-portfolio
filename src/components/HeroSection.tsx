@@ -1,42 +1,70 @@
 import type { FC } from "react";
-import { ArrowDown } from "lucide-react";
+import ParticleBackground from "../components/ui/ParticleBackground";
+import TechStack from "./TechStack";
 
 export const HeroSection: FC = () => {
-  return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
-    >
-      <div className="container max-w-4xl mx-auto text-center z-10">
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in">Hi, I'm</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
-              {" "}Daniel
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
-              {" "}Vo
-            </span>
-          </h1>
+    return (
+        <section
+            id="hero"
+            className="relative min-h-screen flex flex-col items-center justify-center px-4 bg-sky-800/70 overflow-hidden text-white"
+        >
+            <div className="container max-w-4xl mx-auto text-center z-10">
+                <ParticleBackground />
+                {/* Avatar image positioned absolutely */}
+                <div className="flex justify-center mb-6">
+                    <img
+                        src="/images/CV_Photo.png"
+                        alt="Daniel Vo"
+                        className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover object-left shadow-lg border-4 border-white"
+                        style={{ backgroundColor: "#90c53f" }} // optional green tint matching
+                    />
+                </div>
+                <div className="space-y-6">
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+                        <span className="opacity-0 animate-fade-in">
+                            Hi, I'm
+                        </span>
+                        <span className="opacity-0 animate-fade-in-delay-1">
+                            {" "}
+                            Daniel
+                        </span>
+                        <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
+                            {" "}
+                            Vo
+                        </span>
+                    </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I craft scalable and modern full-stack web applications using .NET,
-            React, and cloud technologies. Clean architecture, CI/CD, and
-            performance are always in focus.
-          </p>
+                    <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
+                        I am a senior full-stack developer with 9+ years of
+                        experience delivering scalable enterprise software.
+                         
+                        {/*across healthcare, retail, ERP, and eCommerce. My expertise spans .NET Core, C#, SQL Server, REST APIs,
+                        React, and Azure — with a strong focus on clean
+                        architecture, DevOps, and cloud-ready solutions. */}
+                    </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
-              View My Work
-            </a>
-          </div>
-        </div>
-      </div>
+                    <TechStack />
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2">Scroll</span>
-        <ArrowDown className="h-5 w-5 text-primary" />
-      </div>
-    </section>
-  );
+                    <div className="pt-4 opacity-0 animate-fade-in-delay-4">
+                        <a href="#projects" className="cosmic-button">
+                            View My Work
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {/* {showScroll && (
+                <div
+                    className="fixed bottom-6 right-6 z-40 flex flex-col items-center animate-bounce cursor-pointer"
+                    onClick={handleScroll}
+                >
+                    <span className="text-sm text-muted-foreground mb-1">
+                        Scroll
+                    </span>
+                    <button aria-label="Scroll to next section">
+                        <ArrowDown className="h-5 w-5 text-primary" />
+                    </button>
+                </div>
+            )} */}
+        </section>
+    );
 };
