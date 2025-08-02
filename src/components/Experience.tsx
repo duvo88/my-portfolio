@@ -1,4 +1,3 @@
-import React from "react";
 import { experiences } from "../data/experience";
 
 const Experience = () => {

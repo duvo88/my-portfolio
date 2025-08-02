@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { ArrowRight, ExternalLink, ExternalLinkIcon, Github, GithubIcon } from "lucide-react";
+import { ArrowRight, ExternalLinkIcon, GithubIcon } from "lucide-react";
 
 type Project = {
     id: number;
