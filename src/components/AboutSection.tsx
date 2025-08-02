@@ -40,7 +40,7 @@ export const AboutSection: FC = () => {
                             </a>
 
                             <a
-                                href="/files/Daniel_Resume_August.pdf"
+                                href={`${import.meta.env.BASE_URL}files/Daniel_Resume_August.pdf`}
                                 download
                                 className="px-6 py-2 rounded-xl border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
                             >

@@ -9,37 +9,36 @@ const TechStack = () => {
                 target?.scrollIntoView({ behavior: "smooth" });
             }}
         >
-            <div className="flex items-center gap-4 px-6 py-3 bg-white/50 backdrop-blur-sm rounded-xl shadow-md scale-120">
-                <h3 className="text-xl font-semibold whitespace-nowrap">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 px-6 py-4 bg-white/50 backdrop-blur-sm rounded-xl shadow-md w-full sm:w-auto">
+                {/* Title on its own row in mobile */}
+                <h3 className="text-lg sm:text-xl font-semibold whitespace-nowrap text-center">
                     Core Tech Stack
                 </h3>
 
-                <div className="flex gap-5 items-center text-3xl">
+                {/* Icon row */}
+                <div className="flex justify-center flex-wrap sm:flex-nowrap gap-5 text-3xl sm:text-4xl">
                     <SiDotnet
-                        className="text-purple-700 hover:scale-110 transition-transform duration-300"
+                        className="text-purple-600 w-9 h-9 sm:w-8 sm:h-8 hover:scale-110 transition-transform duration-300"
                         title=".NET"
                     />
-
                     <img
-                        src="/images/microsoft-sql-server.svg"
+                        src={`${import.meta.env.BASE_URL}images/microsoft-sql-server.svg`}
                         alt="SQL Server"
-                        className="w-8 h-8 hover:scale-110 transition-transform duration-300"
+                        className="w-9 h-9 sm:w-8 sm:h-8 object-contain hover:scale-110 transition-transform duration-300"
                         title="SQL Server"
                     />
-
                     <img
-                        src="/images/Azure-DevOps.svg"
+                        src={`${import.meta.env.BASE_URL}images/Azure-DevOps.svg`}
                         alt="Azure DevOps"
-                        className="w-8 h-8 hover:scale-110 transition-transform duration-300"
+                        className="w-9 h-9 sm:w-8 sm:h-8 object-contain hover:scale-110 transition-transform duration-300"
                         title="Azure DevOps"
                     />
-
                     <SiReact
-                        className="text-cyan-500 hover:scale-110 transition-transform duration-300"
+                        className="text-cyan-500 w-9 h-9 sm:w-8 sm:h-8 hover:scale-110 transition-transform duration-300"
                         title="React"
                     />
                     <SiTypescript
-                        className="text-blue-600 hover:scale-110 transition-transform duration-300"
+                        className="text-blue-600 w-9 h-9 sm:w-8 sm:h-8 hover:scale-110 transition-transform duration-300"
                         title="TypeScript"
                     />
                 </div>

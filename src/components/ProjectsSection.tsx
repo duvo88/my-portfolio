@@ -17,7 +17,7 @@ const projects: Project[] = [
         title: "Inventory Management System (Demo)",
         description:
             "Full-stack inventory management system built with C# and SQL Server. Integrated with Azure services and features MFA, OpenAI APIs and CI/CD with GitHub Actions. Built in a short period of time for demo purposes only. This project showcases my skills in .NET Core, React, and Azure DevOps.",
-        image: "/images/react_vite_ts.png",
+        image: `${import.meta.env.BASE_URL}images/react_vite_ts.png`,
         tags: [
             "C#",
             "Azure SQL",
@@ -36,7 +36,7 @@ const projects: Project[] = [
         title: "B2B/B2C eCommerce Platform",
         description:
             "Enterprise-grade eCommerce portals for clients like JB Hi-Fi and Office Choice, featuring self-service, REST/SOAP integration, and scalable architecture.",
-        image: "/images/B2B_eCommerce.png",
+        image: `${import.meta.env.BASE_URL}images/B2B_eCommerce.png`,
         tags: [
             "C#",
             ".NET Framework",
@@ -54,7 +54,7 @@ const projects: Project[] = [
         title: "License Management System",
         description:
             "Modernized license billing system with MSSQL + Web API backend and React-based frontend, integrated with Xero and Power BI.",
-        image: "/images/License-Management.png",
+        image: `${import.meta.env.BASE_URL}images/License-Management.png`,
         tags: [".NET Core", "React", "SQL", "Power BI", "Xero API"],
         demoUrl: "",
         githubUrl: "",
@@ -64,7 +64,7 @@ const projects: Project[] = [
         title: "Medicare Online Claiming",
         description:
             "Healthcare system using C#, WinForms, and Windows Services to support clinics in automated Medicare claim submission.",
-        image: "/images/eprep_system.png",
+        image: `${import.meta.env.BASE_URL}images/eprep_system.png`,
         tags: ["C#", "WinForms", "MSSQL", "HL7", "Windows Services"],
         demoUrl: "",
         githubUrl: "",

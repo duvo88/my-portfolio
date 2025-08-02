@@ -8,7 +8,7 @@ const App: FC = () => {
   return (
     <>
       <Toaster />
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/my-portfolio/' : '/'}>
         <Routes>
           <Route index element={<Home />} />
           <Route path="*" element={<NotFound />} />

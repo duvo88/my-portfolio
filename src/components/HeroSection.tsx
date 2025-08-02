@@ -13,7 +13,7 @@ export const HeroSection: FC = () => {
                 {/* Avatar image positioned absolutely */}
                 <div className="flex justify-center mb-6">
                     <img
-                        src="/images/CV_Photo.png"
+                        src={`${import.meta.env.BASE_URL}images/CV_Photo.png`}
                         alt="Daniel Vo"
                         className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover object-left shadow-lg border-4 border-white"
                         style={{ backgroundColor: "#90c53f" }} // optional green tint matching
@@ -35,8 +35,8 @@ export const HeroSection: FC = () => {
                     </h1>
 
                     <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                        I am a senior full-stack developer with 9+ years of
-                        experience delivering scalable enterprise software.
+                        A senior full-stack developer with 9+ years of
+                        experience delivering scalable enterprise & cloud-ready solutions.
                          
                         {/*across healthcare, retail, ERP, and eCommerce. My expertise spans .NET Core, C#, SQL Server, REST APIs,
                         React, and Azure — with a strong focus on clean
