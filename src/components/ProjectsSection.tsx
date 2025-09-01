@@ -13,7 +13,7 @@ type Project = {
 
 const projects: Project[] = [
     {
-        id: 1,
+        id: 1, 
         title: "Inventory Management System (Demo)",
         description:
             "Full-stack inventory management system built with C# and Azure DevOps. Integrated with Azure services and features MFA, OpenAI APIs and CI/CD with GitHub Actions. Built in a short period of time for demo purposes, still under development.",
@@ -117,28 +117,31 @@ export const ProjectsSection: FC = () => {
                                     {project.description}
                                 </p>
                                 <div className="flex justify-between items-center">
-                                    {project.demoUrl && (
+                                    
                                         <div className="mt-4 flex items-center gap-3">
-                                            <a
-                                                href={project.demoUrl}
-                                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary hover:bg-primary/85 text-white text-sm font-medium rounded-md transition"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <ExternalLinkIcon className="mr-1 w-4 h-4" />
-                                                Live Demo
-                                            </a>
-                                            <a
-                                                href={project.githubUrl}
-                                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-neutral-800 hover:bg-gray-700 text-white text-sm font-medium rounded-md transition"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <GithubIcon className="mr-1 w-4 h-4" />
-                                                GitHub
-                                            </a>
+                                            {project.demoUrl && (
+                                                <a
+                                                    href={project.demoUrl}
+                                                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary hover:bg-primary/85 text-white text-sm font-medium rounded-md transition"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <ExternalLinkIcon className="mr-1 w-4 h-4" />
+                                                    Live Demo
+                                                </a>
+                                            )}
+                                            {project.githubUrl && (
+                                                <a
+                                                    href={project.githubUrl}
+                                                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-neutral-800 hover:bg-gray-700 text-white text-sm font-medium rounded-md transition"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <GithubIcon className="mr-1 w-4 h-4" />
+                                                    GitHub
+                                                </a>
+                                            )}
                                         </div>
-                                    )}
                                 </div>
                             </div>
                         </div>
