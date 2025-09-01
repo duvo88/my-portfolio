@@ -46,7 +46,7 @@ export const HeroSection: FC = () => {
                     <TechStack />
 
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-                        <a href="#projects" className="cosmic-button">
+                        <a href="#projects" className="cosmic-button hover:bg-primary/85 transform transition-transform duration-300 hover:scale-110 hover:shadow-sm">
                             View My Work
                         </a>
                     </div>

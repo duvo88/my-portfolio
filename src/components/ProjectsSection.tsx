@@ -16,7 +16,7 @@ const projects: Project[] = [
         id: 1,
         title: "Inventory Management System (Demo)",
         description:
-            "Full-stack inventory management system built with C# and Azure DevOps. Integrated with Azure services and features MFA, OpenAI APIs and CI/CD with GitHub Actions. Built in a short period of time for demo purposes only.",
+            "Full-stack inventory management system built with C# and Azure DevOps. Integrated with Azure services and features MFA, OpenAI APIs and CI/CD with GitHub Actions. Built in a short period of time for demo purposes, still under development.",
         image: `${import.meta.env.BASE_URL}images/react_vite_ts.png`,
         tags: [
             "C#",
@@ -28,7 +28,7 @@ const projects: Project[] = [
             "MFA",
             "CI/CD",
         ],
-        demoUrl: "https://www.happyboxx.com.au", //https://www.happyboxx.com.au
+        demoUrl: "", // https://github.com/duvo88/my-portfolio
         githubUrl: "https://github.com/duvo88",
     },
     {
@@ -90,11 +90,11 @@ export const ProjectsSection: FC = () => {
                             key={project.id}
                             className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
                         >
-                            <div className="h-56 overflow-hidden bg-sky-600/70">
+                            <div className="h-40 md:h-64 overflow-hidden bg-sky-600/70 flex items-center justify-center">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    className="w-3/4 h-3/4 md:w-full md:h-full mx-auto object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
 
@@ -121,7 +121,7 @@ export const ProjectsSection: FC = () => {
                                         <div className="mt-4 flex items-center gap-3">
                                             <a
                                                 href={project.demoUrl}
-                                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition"
+                                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary hover:bg-primary/85 text-white text-sm font-medium rounded-md transition"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
